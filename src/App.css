@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.Todo {
+  margin: auto;
+  width: fit-content;
+}
+
+.Todo__todoItem {
+  display: flex;
+  gap: 20px;
+  margin: 10px 0;
+}
