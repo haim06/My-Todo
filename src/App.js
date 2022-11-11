@@ -9,12 +9,16 @@ function App() {
   const [input, setInput] = useState('');
 
   const addTodo = (event) => {
-    setTodos([...todos, input])
+    setTodos([...todos, {
+      id: Math.floor(Math.random() * 10000),
+      text: input
+  }])
     setInput('');
   }
   const deleteTodo = (todoDelete) => () => {
-    setTodos(todos.filter(todo => todo !== todoDelete));
+    setTodos(todos.filter(todo => todo.id !== todoDelete));
   }
+
   return (
     <div className="App">
       <h1>Todo App</h1>
@@ -23,8 +27,8 @@ function App() {
       <button onClick={addTodo}>Add Todo</button>
 
         {todos.map(todo => (
-          <div className='Todo__todoItem'><li>{todo}</li>
-          <button onClick={deleteTodo(todo)}>DELETE</button></div>
+          <div className='Todo__todoItem'><li>{todo.text}</li>
+          <button onClick={deleteTodo(todo.id)}>DELETE</button></div>
         ))}
       </div>
       
